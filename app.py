@@ -23,7 +23,7 @@ HOST = os.getenv("HOST", "0.0.0.0")
 MAX_TEXT_LENGTH = int(os.getenv("MAX_TEXT_LENGTH", "200000"))  # 单条文本最大字符数
 MAX_MESSAGES_COUNT = int(os.getenv("MAX_MESSAGES_COUNT", "50"))  # messages 最大数量
 
-# 图片/文件大小限制（字节）
+# 图片/文件大小限制
 MAX_IMAGE_BYTES = int(os.getenv("MAX_IMAGE_BYTES", str(5 * 1024 * 1024)))   # 10MB
 MAX_FILE_BYTES = int(os.getenv("MAX_FILE_BYTES", str(10 * 1024 * 1024)))    # 20MB
 
