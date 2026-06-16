@@ -1,0 +1,5 @@
+Flask
+openai
+azure-identity
+python-dotenv
+gunicorn
