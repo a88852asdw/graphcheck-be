@@ -1,21 +1,21 @@
-# 1. 安全与密钥文件
+# 安全与密钥文件
 .env
 .env.*
 *.pem
 *.key
-# 2. Python 缓存与编译文件
+# Python 缓存与编译文件
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-# 3. 虚拟环境
+# 虚拟环境
 venv/
 .venv/
 env/
 .env_folder/
-# 4. 日志文件
+# 日志文件
 *.log
-# 5. 系统与编辑器缓存
+# 系统与编辑器缓存
 .DS_Store
 Thumbs.db
 .vscode/
