@@ -9,28 +9,34 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
-      # 1. 检出 GitHub 仓库代码
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. 设置 Python 环境 (匹配你的 Azure 运行版本)
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # 3. 安装依赖包
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 4. 部署到 Azure Web App
+      # 使用 3 个 ID 进行免密身份验证
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: '18b8dac7-402c-4ce2-95f3-310f0e31abe3'
+          tenant-id: '6700e121-fc69-448d-89fc-230dca6c2c25'
+          subscription-id: '3bd3d7d9-a57d-4fbe-86e5-eb04bbd6bbbe'
+
+      # 正式部署到 Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'graphcheck-webapp'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: .
